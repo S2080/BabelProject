@@ -1,6 +1,7 @@
 const path = require('path');
 
 const env = process.env.NODE_ENV || 'development';
+const port = process.env.PORT || 8080;
 const isDev = env === 'development';
 const isProd = env === 'production';
 
@@ -12,6 +13,11 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
+    mode: 'development',
+    devServer: {
+        compress: true,
+        port: port
+      },
     module: {
          rules: [{
             test: /\.js?$/,
